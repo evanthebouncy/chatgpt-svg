@@ -1,0 +1,1 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">   <!-- knife handle -->   <rect x="50" y="150" width="50" height="50" fill="#8c8c8c" />   <!-- knife blade -->   <polygon points="100,50 150,100 150,150 50,150 50,100" fill="#000" />   <!-- hilt -->   <circle cx="75" cy="175" r="10" fill="#8c8c8c" /> </svg>

@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">   <g transform="translate(100,100)">     <!-- left lung -->     <path d="M-80,-60 A80,60 0 0,1 -80,60 A80,60 0 0,1 -80,-60" fill="#3498db" />     <!-- right lung -->     <path d="M80,-60 A80,60 0 0,1 80,60 A80,60 0 0,1 80,-60" fill="#e74c3c" />   </g> </svg> 
