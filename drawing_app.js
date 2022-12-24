@@ -38,12 +38,12 @@ function render_image(image_path, location_x, location_y, width, height) {
 }
 
 // render a string on the canvas
-function render_text(text_string, location_x, location_y, width, height) {
+function render_text(text_string, location_x, location_y, width, height, font_size=20) {
     var text = new Konva.Text({
         x: location_x,
         y: location_y,
         text: text_string,
-        fontSize: 20,
+        fontSize: font_size,
         fontFamily: 'Calibri',
         fill: 'black',
         width: width,
@@ -82,10 +82,9 @@ function render_state() {
     var text = data[svg_name]["explanation"];
     render_text(text, IMG_MOD_W+20, 100, IMG_MOD_W, IMG_MOD_W);
 
-    // change the title at #object id
     // take svg_name, replace all '1' substrings with empty
     var svg_noone = svg_name.replace(/1/g, '');
-    $('#object').text(svg_noone);
+    render_text(svg_noone, 0, 40, IMG_MOD_W, 40, 40);
 }
 
 
