@@ -5,6 +5,8 @@ var IMG_MOD_W = 400;
 
 var debug_img = null;
 
+var guess_mode = false;
+
 // get the keys of the variable all_texts
 var MODES = Object.keys(data);
 // var MODES = ['bike_svgs', 'smiley_svgs'];
@@ -78,13 +80,17 @@ function render_state() {
     var svg_path = 'assets/' + svg_name + '.svg';
     render_image(svg_path, 0, 100, IMG_MOD_W, IMG_MOD_W);
 
-    // render the text
-    var text = data[svg_name]["explanation"];
-    render_text(text, IMG_MOD_W+20, 100, IMG_MOD_W, IMG_MOD_W);
+    if (!guess_mode) {
+        // render the text
+        var text = data[svg_name]["explanation"];
+        render_text(text, IMG_MOD_W+20, 100, IMG_MOD_W, IMG_MOD_W);
 
-    // take svg_name, replace all '1' substrings with empty
-    var svg_noone = svg_name.replace(/1/g, '');
-    render_text(svg_noone, 0, 40, IMG_MOD_W, 40, 40);
+        // take svg_name, replace all '1' substrings with empty
+        var svg_noone = svg_name.replace(/1/g, '');
+        render_text(svg_noone, 0, 40, IMG_MOD_W, 40, 40);
+    } else {
+        render_text("guess what this is ? :D", 0, 40, IMG_MOD_W, 40, 40);
+    }
 }
 
 
@@ -107,13 +113,9 @@ $(document).ready(function() {
         }
     });
 
-    // add logic to the drawing button
-    $('#drawing').click(function() {
-        // switch the mode using modulo arith
-        mode_idx = (mode_idx + 1) % MODES.length;
-        // reset the generation index
-        generation_idx = 1;
-        // render the state
+    // add logic to the guess-mode button
+    $('#guess-mode').click(function() {
+        guess_mode = !guess_mode;
         render_state();
     });
 
